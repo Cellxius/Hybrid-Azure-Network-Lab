@@ -1,0 +1,6 @@
+*.pem
+*.key
+*-secrets.*
+*.iso
+raw-screenshots/
+notes-private.md
