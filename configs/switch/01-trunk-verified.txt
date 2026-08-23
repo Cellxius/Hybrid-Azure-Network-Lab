@@ -1,0 +1,26 @@
+# 2960 Gi0/2 trunk verification - VLANs 1, 10, 20 forwarding
+
+Port        Mode             Encapsulation  Status        Native vlan
+Gi0/2       on               802.1q         trunking      1
+
+Port        Vlans allowed on trunk
+Gi0/2       1,10,20
+
+Port        Vlans allowed and active in management domain
+Gi0/2       1,10,20
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Gi0/2       1,10,20
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Gi0/1, Gi0/3, Gi0/4, Gi0/5, Gi0/6, Gi0/7, Gi0/8
+                                                Gi0/9, Gi0/10, Gi0/11, Gi0/12, Gi0/13, Gi0/14
+                                                Gi0/15, Gi0/16, Gi0/17, Gi0/18, Gi0/19, Gi0/20
+                                                Gi0/21, Gi0/22, Gi0/23, Gi0/24
+10   SERVERS                          active    
+20   CLIENTS                          active    
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
