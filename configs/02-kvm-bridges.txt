@@ -1,0 +1,21 @@
+## KVM host bridge configuration — 2026-08-23
+
+br0:bridge:br0
+br0.10:vlan:br0.10
+br0.20:vlan:br0.20
+br0-slave:802-3-ethernet:enp7s0
+br-vlan10:bridge:br-vlan10
+br-vlan20:bridge:br-vlan20
+lxcbr0:bridge:lxcbr0
+virbr0:bridge:virbr0
+
+2: enp7s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel master br0 state UP mode DEFAULT group default qlen 1000
+4: virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default qlen 1000
+6: lxcbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default qlen 1000
+7: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+8: br-vlan10: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+9: br0.10@br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-vlan10 state UP mode DEFAULT group default qlen 1000
+10: br-vlan20: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+11: br0.20@br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-vlan20 state UP mode DEFAULT group default qlen 1000
+
+br0              UP             192.168.1.136/24 <IPV6_REDACTED>/128 <IPV6_REDACTED>/64 <IPV6_REDACTED>/64 fe80::8c58:67e1:2faa:e07d/64 
