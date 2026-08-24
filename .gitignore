@@ -5,3 +5,5 @@
 raw-screenshots/
 notes-private.md
 sanitize.sh
+backups/
+*.xml
