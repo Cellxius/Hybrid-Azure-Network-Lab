@@ -20,3 +20,18 @@ Issues hit:
 - virt-install rejected `--boot uefi,cdrom,hd`; needed --cdrom for install method
 
 Next: promote DC01 to domain controller (lab.internal), then Azure foundation.
+
+## Session 2 — 2026-08-24
+Promoted DC01 to lab.internal forest. DNS forwarder, reverse zones, ICMP rule.
+Built WS01 (Win11 Pro) on VLAN 20.
+
+Issues hit:
+- Win11 install: loaded viostor for disk but forgot NetKVM — no NIC after setup.
+  Fixed with pnputil against the virtio ISO post-install. Load both during setup.
+- Reverse zone created after DC registration, so no PTR existed until
+  ipconfig /registerdns.
+- pfSense SSH did not persist across reboot; WAN blocks 22 by design.
+  Managing via https://10.0.10.1 from DC01 instead.
+- SPICE clipboard never worked on Windows guests. Not pursued.
+
+Next: verify domain join, then Azure foundation (RG, VNets, peering).
