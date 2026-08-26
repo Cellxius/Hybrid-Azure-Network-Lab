@@ -35,3 +35,10 @@ Issues hit:
 - SPICE clipboard never worked on Windows guests. Not pursued.
 
 Next: verify domain join, then Azure foundation (RG, VNets, peering).
+
+## Session 3 — 2026-08-25
+Azure: RG, hub/spoke VNets, GatewaySubnet, NSG, peering, Arm64 test VM.
+Started Basic VPN gateway. Configured IP Passthrough on BGW320.
+
+Open item: pfSense still holding the old 192.168.1.137 lease after passthrough
+was enabled. Needs dhclient restart or reboot to pick up the public address.
