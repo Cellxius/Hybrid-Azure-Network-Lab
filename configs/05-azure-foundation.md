@@ -21,3 +21,12 @@ useRemoteGateways deferred until the gateway exists — it fails otherwise.
 - Standard SKU public IP must be created with explicit zones (--zone 1 2 3)
   or gateway creation fails with ZRStandardIpNeeded.
 - Basic VPN Gateway SKU can only be created via CLI, not the portal.
+
+## User-defined route
+rt-workload attached to snet-workload with 10.0.0.0/16 -> VirtualNetworkGateway.
+
+Gateway transit already propagated this route, so the UDR is not strictly
+required for connectivity. It was added to make routing intent explicit and
+to survive a peering misconfiguration. Effective route table shows the
+UserDefined route Active and the gateway-propagated route Invalid,
+demonstrating Azure route precedence.
