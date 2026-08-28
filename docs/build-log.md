@@ -42,3 +42,21 @@ Started Basic VPN gateway. Configured IP Passthrough on BGW320.
 
 Open item: pfSense still holding the old 192.168.1.137 lease after passthrough
 was enabled. Needs dhclient restart or reboot to pick up the public address.
+
+## Session 4 — 2026-08-27 — TUNNEL UP
+IP Passthrough confirmed: pfSense WAN holds the public IP directly.
+Recreated Basic VPN gateway, local network gateway, connection.
+Set useRemoteGateways on spoke peering.
+pfSense IPsec: IKEv2, AES256/SHA256/DH2, two P2 entries, PFS off.
+IPsec firewall rules for both Azure VNets. MSS clamped to 1350.
+
+Issue: AUTH_FAILED on first connect — "tried 1 shared key, but MAC mismatched".
+Cause: PSK mismatch from base64 copy/paste between host, password manager,
+and a VM with no clipboard sharing. Fixed by regenerating as hex (openssl
+rand -hex 24) so there were no characters to mangle.
+
+Verified: ping 10.20.1.4 from DC01 (10.0.10.10), 0% loss, 5-9ms.
+strongSwan merged both P2 entries into one child SA covering
+10.10.0.0/16 and 10.20.0.0/16.
+
+Next: reverse path (Azure to on-prem), then bidirectional DNS.
