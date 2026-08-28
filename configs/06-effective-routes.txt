@@ -1,0 +1,6 @@
+Source                 State    Address Prefix    Next Hop Type          Next Hop IP
+---------------------  -------  ----------------  ---------------------  -------------
+Default                Active   10.20.0.0/16      VnetLocal
+Default                Active   10.10.0.0/16      VNetPeering
+VirtualNetworkGateway  Active   10.0.0.0/16       VirtualNetworkGateway  10.10.0.4
+Default                Active   0.0.0.0/0         Internet
